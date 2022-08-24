@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.views.generic import TemplateView
 
 
@@ -17,6 +19,7 @@ class NewsPageView(TemplateView):
             "news_preview"
         ] = "Предварительное описание, которое заинтересует каждого"
         context["range"] = range(5)
+        context["datetime_obj"] = datetime.now()
         return context
 
 
