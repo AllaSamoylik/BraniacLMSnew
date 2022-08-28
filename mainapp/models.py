@@ -20,7 +20,7 @@ class BaseModel(models.Model):
 class News(BaseModel):
     title = models.CharField(max_length=256, verbose_name="Title")
     preamble = models.CharField(max_length=1024, verbose_name="Preamble")
-    body = models.TextField( verbose_name="Body", **NULLABLE)
+    body = models.TextField(verbose_name="Body", **NULLABLE)
     body_as_markdown = models.BooleanField(default=False, verbose_name="As markdown")
 
     def __str__(self) -> str:
