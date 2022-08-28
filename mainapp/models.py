@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.query import QuerySet
 
 NULLABLE = {'blank': True, 'null': True}
 
@@ -16,8 +17,34 @@ class BaseModel(models.Model):
         self.deleted = True
         self.save()
 
+    def live(self):
+        self.deleted = False
+        self.save()
+
+    def hard_delete(self):
+        super(BaseModel, self).delete()
+
+
+class BaseQuerySet(QuerySet):
+
+    def delete(self, *args, **kwargs):
+        return super(BaseQuerySet, self).update(deleted=True)
+
+    def hard_delete(self):
+        return super(BaseQuerySet, self).delete()
+
+
+class NewsManager(models.Manager):
+
+    def get_queryset(self):
+        return BaseQuerySet(self.model).filter(deleted=False)
+
 
 class News(BaseModel):
+
+    objects = NewsManager()
+    all_objects = models.Manager()
+
     title = models.CharField(max_length=256, verbose_name="Title")
     preamble = models.CharField(max_length=1024, verbose_name="Preamble")
     body = models.TextField(verbose_name="Body", **NULLABLE)
