@@ -40,6 +40,11 @@ class NewsManager(models.Manager):
         return BaseQuerySet(self.model).filter(deleted=False)
 
 
+class CoursesManager(models.Manager):
+    def get_queryset(self):
+        return BaseQuerySet(self.model).filter(deleted=False)
+
+
 class News(BaseModel):
 
     objects = NewsManager()
@@ -59,6 +64,9 @@ class News(BaseModel):
 
 
 class Course(BaseModel):
+    objects = CoursesManager()
+    all_objects = models.Manager()
+
     name = models.CharField(max_length=256, verbose_name="Name")
     description = models.TextField(verbose_name="Description", **NULLABLE)
     description_as_markdown = models.BooleanField(verbose_name="As markdown", default=False)
