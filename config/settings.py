@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "markdownify.apps.MarkdownifyConfig",
+    "social_django",
     "mainapp",
     "authapp",
 ]
@@ -66,6 +67,8 @@ TEMPLATES = [
                 "django.template.context_processors.media",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "social_django.context_processors.backends",
+                "social_django.context_processors.login_redirect",
             ],
         },
     },
@@ -140,4 +143,10 @@ LOGOUT_REDIRECT_URL = "mainapp:index"
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'social_core.backends.github.GithubOAuth2',
+)
 
+SOCIAL_AUTH_GITHUB_KEY = "d4d55fff0218fe519e99"
+SOCIAL_AUTH_GITHUB_SECRET = "2b46a52fe7ce52a236428cdb308f28dbc39bea07"
