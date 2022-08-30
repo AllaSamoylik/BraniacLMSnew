@@ -146,7 +146,11 @@ MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.vk.VKOAuth2'
 )
 
 SOCIAL_AUTH_GITHUB_KEY = "d4d55fff0218fe519e99"
 SOCIAL_AUTH_GITHUB_SECRET = "2b46a52fe7ce52a236428cdb308f28dbc39bea07"
+
+SOCIAL_AUTH_VK_OAUTH2_KEY = '8216944'
+SOCIAL_AUTH_VK_OAUTH2_SECRET = '8olo1QSrXJ4lL9lPjtw1'

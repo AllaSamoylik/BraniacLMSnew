@@ -23,8 +23,7 @@ class CustomUser(AbstractUser):
     email = models.EmailField(
         _("email address"),
         max_length=256,
-        # Флаг уникальности отключён для проверки разных способов логина (везде одна почта:)C
-        # unique=True,
+        unique=True,
         error_messages={
             "unique": _("A user with that email address already exists."),
         },
