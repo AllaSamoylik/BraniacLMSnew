@@ -135,8 +135,8 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 AUTH_USER_MODEL = "authapp.CustomUser"
 
-LOGIN_REDIRECT_URL = "mainapp:main_page"
-LOGOUT_REDIRECT_URL = "mainapp:main_page"
+LOGIN_REDIRECT_URL = "mainapp:index"
+LOGOUT_REDIRECT_URL = "mainapp:index"
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
