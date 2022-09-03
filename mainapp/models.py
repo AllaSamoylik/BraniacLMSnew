@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models.query import QuerySet
+from django.utils.translation import gettext_lazy as _
 
 NULLABLE = {'blank': True, 'null': True}
 
@@ -59,8 +60,8 @@ class News(BaseModel):
         return f"{self.pk} {self.title}"
 
     class Meta:
-        verbose_name = 'новость'
-        verbose_name_plural = 'новости'
+        verbose_name = _("News")
+        verbose_name_plural = _("News")
 
 
 class Course(BaseModel):
@@ -77,8 +78,8 @@ class Course(BaseModel):
         return f"{self.pk} {self.name}"
 
     class Meta:
-        verbose_name = 'курс'
-        verbose_name_plural = 'курсы'
+        verbose_name = _("Course")
+        verbose_name_plural = _("Courses")
 
 
 class Lesson(BaseModel):
@@ -92,8 +93,8 @@ class Lesson(BaseModel):
         return f"{self.course.name} | {self.num} | {self.title}"
 
     class Meta:
-        verbose_name = 'урок'
-        verbose_name_plural = 'уроки'
+        verbose_name = _("Lesson")
+        verbose_name_plural = _("Lessons")
         ordering = ('course', 'num')
 
 
@@ -106,3 +107,7 @@ class CoursesTeacher(BaseModel):
 
     def __str__(self):
         return "{0:0>3} {1} {2}".format(self.pk, self.name_second, self.name_first)
+
+    class Meta:
+        verbose_name = _("Teacher")
+        verbose_name_plural = _("Teachers")
