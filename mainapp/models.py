@@ -62,6 +62,7 @@ class News(BaseModel):
     class Meta:
         verbose_name = _("News")
         verbose_name_plural = _("News")
+        ordering = ('-created',)
 
 
 class Course(BaseModel):
