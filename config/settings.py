@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "social_django",
     "mainapp",
     "authapp",
+    "crispy_forms",
 ]
 
 MIDDLEWARE = [
@@ -107,7 +108,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = "ru-ru"
+LANGUAGE_CODE = "en-us"
+# LANGUAGE_CODE = "ru-ru"
 
 TIME_ZONE = "Europe/Moscow"
 
@@ -154,3 +156,5 @@ SOCIAL_AUTH_GITHUB_SECRET = "2b46a52fe7ce52a236428cdb308f28dbc39bea07"
 
 SOCIAL_AUTH_VK_OAUTH2_KEY = '8216944'
 SOCIAL_AUTH_VK_OAUTH2_SECRET = '8olo1QSrXJ4lL9lPjtw1'
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
